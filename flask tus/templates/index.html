@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Captioning</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	
+
+<style type="text/css">
+	
+.heading{
+    font-weight: 800;
+    font-size: 4em;
+}
+img{
+	height: 90%;
+	width: 100%;
+}
+.text{
+	font-size: 32px;
+	font-style: italic;
+}
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #ffc107;
+    border-radius: 0.3rem;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #000;
+    border-color: #212529;
+    margin: 10px;
+}
+
+
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron ">
+	        <div class="container">
+	            <h1 class="heading">Image Captioning</h1> 
+	            <p>Upload your Image to generate a caption..</p> 
+	        </div>
+	    </div>
+	
+	
+
+		<form class="form-inline" enctype="multipart/form-data" action="/" method="POST">
+	        <label><b>Put Your Image: &nbsp;&nbsp; </b></label>
+	        <input type="file" class="form-control" name="image">
+
+	        <button type="submit" class="btn btn-primary"> Submit</button>
+	    </form>
+
+	    <br>
+		
+
+	    {% if results %}
+	    	<div class="row">
+	    		<div class="col-sm-4">
+	    			<img src="{{results.image}}">
+	    		</div>
+	    		<div class="col-sm-8">
+
+	    			<p class="text">Generated Caption : </p>
+	    			<p><b> {{results.description}} </b> </p>
+	    		</div>
+	    {% endif %}
+
+	</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
